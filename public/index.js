@@ -162,7 +162,7 @@ angular.module('app')
           var westernTime = parseInt(split[0]);
           var timeCode = westernTime >= 12 ? 'PM' : 'AM';
           var hour = westernTime >= 12 ? westernTime - 12 : westernTime;
-          return `${hour}:${split[1]} ${timeCode}`;
+          return `${hour - 8}:${split[1]} ${timeCode}`;
         }
 
         // Remove itinerary from user account
