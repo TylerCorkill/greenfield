@@ -1,9 +1,10 @@
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('heroku_6a89e82b691972a', 'b0509710d39880', '29b2ff6e', {
-  host: 'us-cdbr-iron-east-03.cleardb.net',
+// require('../apiKeys.js');
+
+var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
   port: 3306,
   dialect: 'mysql'
-  // pool: { idle: 120000, max: 5, min: 0}
   });
 
 var itineraries = sequelize.define('itineraries', {
