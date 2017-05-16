@@ -11,8 +11,8 @@ angular.module('app', ['auth0.lock', 'angular-jwt', 'ui.router', 'ngMap'])
     ]);
 
     lockProvider.init({
-      clientID: 'x7Iti71JJV6appY7ppOL6Xaji1hH4FmB',
-      domain: 'xosk.auth0.com',
+      clientID: process.env.AUTH0_ID,
+      domain: process.env.AUTH0_DOMAIN,
       options: {
         _idTokenVerification: false
       }

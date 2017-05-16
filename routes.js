@@ -17,6 +17,24 @@ app.use(bodyParser());
 app.use(express.static(__dirname + '/public'));
 
 
+
+app.get('/get_map', (req, res) => {
+  var propertiesObj = {
+    libraries: 'places',
+    key: process.env.MAP_API
+  };
+
+  var params = {
+    url: 'https://maps.google.com/maps/api/js',
+    qs: propertiesObj
+  };
+
+  request(params, function(err, response, body) {
+    res.end(body);
+  });
+});
+
+
 app.get('/trip/:id', (req, res) => {
   if ( /^\d+$/.test(req.params.id) ) {
     res.sendFile(public + 'index.html');
