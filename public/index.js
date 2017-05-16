@@ -9,7 +9,7 @@ angular.module('app')
       restrict: 'E',
       controllerAs: 'app',
       bindToController: true,
-      controller: function($location, appServices, NgMap, $window, authService, lockProvider) {
+      controller: function($location, appServices, NgMap, $window, authService) {
 
         if ( localStorage.getItem('id_token') ) {
           authService.authenticateOnRefresh();
